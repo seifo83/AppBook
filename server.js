@@ -21,7 +21,18 @@ server.get('/test', function( req, res ){
 });
 
 
- 
+//Gestion Error 
+
+server.use((req, res, suite)=> {
+    const error = new Error("Page non trouvé");
+    error.status = 404;
+    suite(error);
+});
+
+server.use((error, req, res)=> {
+    res.status(errors.status  || 500);
+    res.end(error.message);
+})
 
 
 

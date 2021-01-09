@@ -1,45 +1,42 @@
 var express = require("express");
 var router = express.Router();
+const twig = require("twig");
 
 
 
 
-router.get('/', function( req, res ){
+router.get('/', function( requete, response  ){
     console.log('page d\'accueil demandée');
-    console.log(req.path);
-    res.end("page d'accueil");
+    console.log(requete.path);
+    response.render("accueil.html.twig");
 });
 
-router.get('/test', function( req, res ){
+router.get('/test', function( requete, response ){
     console.log('demande recue avec la méthode Get sur l\'URL  /test');
-    console.log(req.path);
-    res.end("page test méthode GET ");
+    console.log(requete.path);
+    response.end("page test méthode GET ");
 });
 
-router.post('/test', function( req, res ){
+router.post('/test', function( requete, response ){
     console.log('demande recue avec la méthode post sur l\'URL  /test');
-    console.log(req.path);
-    res.end("page test méthode POST");
+    console.log(requete.path);
+    response.end("page test méthode POST");
 });
-
-
 
 
 
 //Gestion Error 
 
-router.use((req, res, suite)=> {
+router.use((requete, response, suite)=> {
     const error = new Error("Page non trouvé");
     error.status = 404;
     suite(error);
 });
 
-router.use((error, req, res)=> {
-    res.status(errors.status  || 500);
-    res.end(error.message);
+router.use((error, requete, response)=> {
+    response.status(errors.status  || 500);
+    response.end(error.message);
 })
-
-
 
 
 module.exports = router

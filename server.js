@@ -1,38 +1,18 @@
 var  express = require("express");
 var server = express();
 var morgan = require("morgan");
+var router = require("./routeur");
 
 
 
 server.use(morgan("dev"));
 
 // Configurer Route
-
-server.get('/', function( req, res ){
-    console.log('page d\'accueil demandée');
-    console.log(req.path);
-    res.end("page d'accueil");
-});
-
-server.get('/test', function( req, res ){
-    console.log('demande recue avec la méthode Get sur l\'URL  /test');
-    console.log(req.path);
-    res.end("Bonjour Client");
-});
+server.use("/", router);
 
 
-//Gestion Error 
 
-server.use((req, res, suite)=> {
-    const error = new Error("Page non trouvé");
-    error.status = 404;
-    suite(error);
-});
 
-server.use((error, req, res)=> {
-    res.status(errors.status  || 500);
-    res.end(error.message);
-})
 
 
 

@@ -4,9 +4,10 @@ var morgan = require("morgan");
 var router = require("./routeur");
 
 
-
+//CSS personalisé 
+server.use(express.static("public"));
+//Morgan
 server.use(morgan("dev"));
-
 // Configurer Route
 server.use("/", router);
 

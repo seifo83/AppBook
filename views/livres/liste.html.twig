@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %} Liste des livres de la bibliothéque {% endblock %}
+
+{% block contenu %} 
+   <table class="table text-center monTableau" id="tableauLivres">
+        <thead>
+            <tr class="table-dark">
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Nombre de pages</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>L'algorithmique selon H2PROG</td>
+                <td>Matthieu GASTON</td>
+                <td>200</td>
+                <td><a href="" class="btn btn-warning">Modifier</a></td>
+                <td><a href="" class="btn btn-danger">Supprier</a></td>
+            </tr>
+              <tr>
+                <td>La France du 19ème</td>
+                <td>Albert PATRICK</td>
+                <td>500</td>
+                <td><a href="" class="btn btn-warning">Modifier</a></td>
+                <td><a href="" class="btn btn-danger">Supprier</a></td>
+            </tr>
+              <tr>
+                <td>Le monde des animaux</td>
+                <td>Marc MERLIN</td>
+                <td>250</td>
+                <td><a href="" class="btn btn-warning">Modifier</a></td>
+                <td><a href="" class="btn btn-danger">Supprier</a></td>
+            </tr>
+              <tr>
+                <td>Le virus d'Asie</td>
+                <td>Tya MILO</td>
+                <td>120</td>
+                <td><a href="" class="btn btn-warning">Modifier</a></td>
+                <td><a href="" class="btn btn-danger">Supprier</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="" class="btn btn-primary d-block">Ajouter</a>
+{% endblock %}

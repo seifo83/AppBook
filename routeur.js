@@ -24,6 +24,13 @@ router.post('/test', function( requete, response ){
 });
 
 
+// Route Listant les livres
+router.get("/livres", (requete, response) => {
+    response.render("livres/liste.html.twig");
+
+})
+
+
 
 //Gestion Error 
 

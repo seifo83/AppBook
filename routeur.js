@@ -30,6 +30,13 @@ router.get("/livres", (requete, response) => {
 
 })
 
+//Route afficher un livre 
+router.get("/livres/:nom", (requete, response) => {
+    //console.log(requete.params.nom);
+    response.render("livres/livre.html.twig", {nom:requete.params.nom});
+
+
+})
 
 
 //Gestion Error 
